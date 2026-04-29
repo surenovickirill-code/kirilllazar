@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Достопримечательности России</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e6f0ff;
+            margin: 10px;
+        }
+        .header {
+            background: #003399;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .marquee {
+            background: #ffcc00;
+            color: #003399;
+            font-weight: bold;
+            padding: 10px;
+            margin: 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .menu {
+            width: 200px;
+            background: #003399;
+            color: white;
+            vertical-align: top;
+            padding: 15px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .menu a:hover {
+            background: yellow;
+            color: black;
+        }
+        .content {
+            padding: 20px;
+            background: white;
+            border: 2px solid #003399;
+        }
+        h1, h2 {
+            color: #003399;
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <div class="header">
+        <h1>ДОСТОПРИМЕЧАТЕЛЬНОСТИ РОССИИ</h1>
+        
+        <!-- Бегущая строка -->
+        <div class="marquee">
+            <marquee>Добро пожаловать на сайт о главных достопримечательностях России!</marquee>
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <!-- Меню слева -->
+            <td class="menu">
+                <h2>Меню</h2>
+                <a href="#" onclick="showPage('main')">Главная</a>
+                <a href="#" onclick="showPage('moscow')">Москва</a>
+                <a href="#" onclick="showPage('spb')">Санкт-Петербург</a>
+                <a href="#" onclick="showPage('baikal')">Озеро Байкал</a>
+            </td>
+
+            <!-- Основное содержание -->
+            <td class="content" id="main">
+                <h1>Добро пожаловать!</h1>
+                <p>Здесь собрана информация о самых красивых и известных местах России.</p>
+                <p>Вы можете выбрать в меню слева нужный раздел и посмотреть информацию.</p>
+                
+                <h2>Оставить отзыв</h2>
+                <p>Имя: <br>
+                <input type="text" id="name" style="width: 300px;"></p>
+                
+                <p>Отзыв: <br>
+                <textarea id="msg" rows="6" style="width: 400px;"></textarea></p>
+                
+                <button onclick="sendForm()">Отправить</button>
+                <button onclick="clearForm()">Очистить</button>
+            </td>
+
+            <!-- Страница Москва -->
+            <td class="content" id="moscow" style="display:none;">
+                <h1>Москва</h1>
+                <p>Москва — столица России.</p>
+                <p>В Москве обязательно стоит увидеть Красную площадь с Кремлем и собором Василия Блаженного, прогуляться по современному парку «Зарядье» с его парящим мостом, полюбоваться панорамой города с Воробьёвых гор, изучить монументальные павильоны ВДНХ и насладиться искусством в Третьяковской галерее или Пушкинском музее.</p>
+                <img src=aaa.jpg width=550 alt=Москва>
+            </td>
+
+            <!-- Страница Санкт-Петербург -->
+            <td class="content" id="spb" style="display:none;">
+                <h1>Санкт-Петербург</h1>
+                <p>Северная столица России.</p>
+                <p>В Санкт-Петербурге стоит обязательно посетить Эрмитаж и Дворцовую площадь, увидеть величественный Исаакиевский собор и Спас на Крови, прогуляться по Невскому проспекту, заглянуть в Петропавловскую крепость и полюбоваться разводными мостами над Невой в период белых ночей.</p>
+                <img src="bbb.webp" width="550" alt="Петербург"> </td>
+
+            <!-- Страница Байкал -->
+            <td class="content" id="baikal" style="display:none;">
+                <h1>Озеро Байкал</h1>
+                <p>Самое глубокое озеро в мире.</p>
+                <p>Озеро Байкал впечатляет своими масштабами и чистейшей водой, поэтому здесь обязательно стоит посетить остров Ольхон с сакральной скалой Шаманка, прокатиться по исторической Кругобайкальской железной дороге, увидеть лежбище нерп на Ушканьих островах и насладиться прозрачным зеркальным льдом в зимнее время.</p>
+                <img src="www.jpg" width="550" alt="Байкал">
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function showPage(page) {
+            // Скрываем все страницы
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('moscow').style.display = 'none';
+            document.getElementById('spb').style.display = 'none';
+            document.getElementById('baikal').style.display = 'none';
+            
+            // Показываем нужную
+            document.getElementById(page).style.display = 'block';
+        }
+
+        function sendForm() {
+            let name = document.getElementById('name').value;
+            if (name != "") {
+                alert("Спасибо, " + name + "! Ваш отзыв отправлен.");
+            } else {
+                alert("Пожалуйста, введите ваше имя.");
+            }
+        }
+
+        function clearForm() {
+            document.getElementById('name').value = "";
+            document.getElementById('msg').value = "";
+        }
+    </script>
+
+</body>
+</html>
